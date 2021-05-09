@@ -12,7 +12,7 @@ export default function PaginaAvatars() {
     const json = await resp.json();
     setUserList(json.results);
   };
-
+ 
   useEffect(() => {
     loadUsers();
   }, []);
