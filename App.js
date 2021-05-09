@@ -5,6 +5,8 @@ import BotoPreferit from "./components/BotoPreferit";
 import PaginaAvatars from "./components/PaginaAvatars";
 import GameList from "./components/GameList";
 import GameSearch from "./components/GameSearch";
+import GameBox from "./components/GameBox";
+import Categories from "./components/Categories";
 /*
 export default function App() {
   return (
@@ -31,6 +33,8 @@ export default function App() {
   const [search, setSearch] = useState("");
   return (
     <ScrollView>
+      <GameBox />
+      <Categories/>
       <View style={styles.page}>
         <Paragraph>
           Lorem fistrum ese que llega se calle ustée ese que llega me cago en tus
