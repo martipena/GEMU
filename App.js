@@ -1,8 +1,10 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 import BotoPreferit from "./components/BotoPreferit";
 import PaginaAvatars from"./components/PaginaAvatars";
+import GameList from "./components/GameList";
+import GameSearch from "./components/GameSearch";
 /*
 export default function App() {
   return (
@@ -26,6 +28,7 @@ const Paragraph = (props) => {
   return <Text style={styles.paragraph}>{props.children}</Text>;
 };
 export default function App() {
+  const [search, setSearch] = useState("");
   return (
     <ScrollView>
       <View style={styles.page}>
@@ -69,6 +72,15 @@ export default function App() {
         </Text>
       <View style={styles.container}>
         <PaginaAvatars />
+        <StatusBar style="auto" />
+      </View>
+      <View style={styles.container}>
+        <GameList />
+        <StatusBar style="auto" />
+      </View>
+      <View style={styles.container}>
+        <TextInput style={styles.searchBox} value={search} onChangeText={setSearch} />
+        <GameSearch search={search} />
         <StatusBar style="auto" />
       </View>
     </ScrollView>
@@ -133,5 +145,12 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "black",
     resizeMode: "cover",
+  },
+  searchBox: {
+    borderWidth: 1,
+    borderRadius: 5,
+    borderColor: "#ccd",
+    paddingHorizontal: 12,
+    paddingVertical: 6,
   },
 });
