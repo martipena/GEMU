@@ -75,7 +75,11 @@ const styles = StyleSheet.create({
     flex:1,
     justifyContent:"center",
     alignItems:"center",
-    margin:3
+    margin:3,
+    padding: 10,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "flex-start",
   },
   bgImage:{
     height: 150,

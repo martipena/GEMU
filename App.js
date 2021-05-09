@@ -76,7 +76,6 @@ export default function App() {
       </Text>
       <View style={styles.container}>
         <PaginaAvatars />
-        <StatusBar style="auto" />
       </View>
       <Text style={styles.title}>
         <Text style={styles.strong}>Llista jocs</Text>
