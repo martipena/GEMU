@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import { StyleSheet, Text, View, TextInput, ScrollView } from "react-native";
 import BotoPreferit from "./components/BotoPreferit";
-import PaginaAvatars from"./components/PaginaAvatars";
+import PaginaAvatars from "./components/PaginaAvatars";
 import GameList from "./components/GameList";
 import GameSearch from "./components/GameSearch";
 /*
@@ -32,7 +32,7 @@ export default function App() {
   return (
     <ScrollView>
       <View style={styles.page}>
-      <Paragraph>
+        <Paragraph>
           Lorem fistrum ese que llega se calle ustée ese que llega me cago en tus
           muelas te voy a borrar el cerito al ataquerl quietooor no puedor.
         </Paragraph>
@@ -61,23 +61,29 @@ export default function App() {
         </Paragraph>
       </View>
       <Text style={styles.title}>
-          <Text style={styles.strong}>Botó preferit</Text>
-        </Text>
+        <Text style={styles.strong}>Botó preferit</Text>
+      </Text>
       <View style={styles.container}>
         <BotoPreferit />
         <StatusBar style="auto" />
       </View>
       <Text style={styles.title}>
-          <Text style={styles.strong}>Analisis</Text>
-        </Text>
+        <Text style={styles.strong}>Analisis</Text>
+      </Text>
       <View style={styles.container}>
         <PaginaAvatars />
         <StatusBar style="auto" />
       </View>
+      <Text style={styles.title}>
+        <Text style={styles.strong}>Llista jocs</Text>
+      </Text>
       <View style={styles.container}>
         <GameList />
         <StatusBar style="auto" />
       </View>
+      <Text style={styles.title}>
+        <Text style={styles.strong}>Buscar</Text>
+      </Text>
       <View style={styles.container}>
         <TextInput style={styles.searchBox} value={search} onChangeText={setSearch} />
         <GameSearch search={search} />
