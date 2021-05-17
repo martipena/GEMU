@@ -8,7 +8,7 @@ import { useFonts } from "expo-font";
 const Game = ({ game }) => {
   return (
     <View style={styles.game}>
-      <Image style={styles.bgImage} source={{uri: game.background_image}} />
+      <Image style={styles.bgImage} source={{ uri: game.background_image }} />
       <Text style={styles.name}>
         {game.name}
       </Text>
@@ -16,9 +16,10 @@ const Game = ({ game }) => {
         <Image style={styles.platformImage} source={game.platforms.platform} />
       </View>
       <View>
-        <Text >
-          {game.genres.name}
-        </Text>
+        
+
+          {game.genres.map(genre => <Text>{genre.name}</Text>)}
+        
         <Text style={styles.gameScore}>
           {game.metacritic}
         </Text>
@@ -71,35 +72,37 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  game:{
-    flex:1,
-    justifyContent:"center",
-    alignItems:"center",
-    margin:3,
+  game: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 3,
     padding: 10,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "flex-start",
   },
-  bgImage:{
+  bgImage: {
     height: 150,
     width: 150,
     borderRadius: 30,
     backgroundColor: 'rgba(52, 52, 52, 0.8)',
   },
-  name:{
-    fontFamily:"Montserrat-Black",
+  name: {
+    fontFamily: "Montserrat-Black",
+    position: "absolute",
+    bottom:10
   },
-  gameScore:{
-    fontFamily:"Montserrat-Black",
-    backgroundColor:"rgba(50,50,50,0.25)",
-    borderRadius:5,
-    borderWidth:2,
-    borderColor:"#C9FF2E",
-    padding:4,
-    fontSize:10
+  gameScore: {
+    fontFamily: "Montserrat-Black",
+    backgroundColor: "rgba(50,50,50,0.25)",
+    borderRadius: 5,
+    borderWidth: 2,
+    borderColor: "#C9FF2E",
+    padding: 4,
+    fontSize: 10
 
   }
 
-  
+
 });
