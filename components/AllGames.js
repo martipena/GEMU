@@ -1,30 +1,35 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, ActivityIndicator, StyleSheet, FlatList, Image } from "react-native";
-import BotoPreferit from "../components/BotoPreferit";
+import Demo from "./Demo";
 
 import { useFonts } from "expo-font";
 
 
 const Game = ({ game }) => {
-  
   return (
-    <View>
+    <View style={styles.game}>
       <Image style={styles.bgImage} source={{ uri: game.background_image }} />
-      <View style={styles.game}>
-        <BotoPreferit style={styles.likeButton}></BotoPreferit>
-        <Text style={styles.name}>
-          {game.name}
-        </Text>
+      <Text style={styles.name}>
+        {game.name}
+      </Text>
+      <View style={styles.platformsDiv}>
+        <Image style={styles.platformImage} source={game.platforms.platform} />
+      </View>
+      <View>
+        
+
+          {game.genres.map(genre => <Text>{genre.name}</Text>)}
+        
         <Text style={styles.gameScore}>
           {game.metacritic}
         </Text>
-        {game.genres.map(genre => <Text style={styles.genre}> {genre.name},</Text>)}
       </View>
+
     </View>
   );
 };
 
-export default function GameBox() {
+export default function AllGames() {
   const [loaded, error] = useFonts({
     "Montserrat-Regular": require("../assets/fonts/Montserrat-Regular.ttf"),
     "Montserrat-Black": require("../assets/fonts/Montserrat-Black.ttf"),
@@ -51,54 +56,31 @@ export default function GameBox() {
     );
   }
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>All Games</Text>
+    <Demo>
       <FlatList
         data={gameDetails}
         renderItem={({ item }) => <Game game={item} />}
         keyExtractor={(item, index) => `${item.id}${index}`}
       />
-    </View>
+    </Demo>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    
-  },
   emptyList: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
   },
-  title:{
-    color:"#E6FF2E",
-    fontFamily:"Montserrat-Black",
-    paddingBottom:20,
-    fontSize:30,
-    alignContent:'flex-start'
-  },
-  likeButton: {
-    position:'absolute',
-    top:10,
-    left:120,
-    backgroundColor:"#00FF75"
-  },
   game: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 30,
+    margin: 3,
     padding: 10,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "flex-start",
-    backgroundColor: "rgba(146,0,250,0.25)",
-    height: 150,
-    width: 150,
-    position: 'absolute'
-
   },
   bgImage: {
     height: 150,
@@ -109,34 +91,18 @@ const styles = StyleSheet.create({
   name: {
     fontFamily: "Montserrat-Black",
     position: "absolute",
-    bottom: 50,
-    left: 10,
-    alignContent: "center",
-    color: "#E6FF2E"
+    bottom:10
   },
   gameScore: {
-    fontFamily: "Montserrat-Regular",
-    backgroundColor: "rgba(50,50,50,0.50)",
+    fontFamily: "Montserrat-Black",
+    backgroundColor: "rgba(50,50,50,0.25)",
     borderRadius: 5,
     borderWidth: 2,
     borderColor: "#C9FF2E",
-    padding: 3,
-    fontSize: 10,
-    color: "#00FF75",
-    textAlign: 'center',
-    position: "absolute",
-    bottom: 20,
-    left: 115,
+    padding: 4,
+    fontSize: 10
 
-  },
-  genre: {
-    fontFamily: "Montserrat-Regular",
-    position: "absolute",
-    bottom: 30,
-    left: 10,
-    alignContent: "center",
-    color: "white"
-  },
+  }
 
 
 });

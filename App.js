@@ -1,12 +1,14 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { StyleSheet, Text, View, TextInput, ScrollView } from "react-native";
+import { StyleSheet, Text, View, TextInput, ScrollView, Image } from "react-native";
 import BotoPreferit from "./components/BotoPreferit";
 import PaginaAvatars from "./components/PaginaAvatars";
 import GameList from "./components/GameList";
 import GameSearch from "./components/GameSearch";
 import GameBox from "./components/GameBox";
 import Categories from "./components/Categories";
+import Logo from "./assets/GemuMenu.png";
+import { useFonts } from "expo-font";
 /*
 export default function App() {
   return (
@@ -30,9 +32,16 @@ const Paragraph = (props) => {
   return <Text style={styles.paragraph}>{props.children}</Text>;
 };
 export default function App() {
+  const [loaded, error] = useFonts({
+    "Montserrat-Regular": require("./assets/fonts/Montserrat-Regular.ttf"),
+    "Montserrat-Black": require("./assets/fonts/Montserrat-Black.ttf"),
+  });
   const [search, setSearch] = useState("");
   return (
-    <ScrollView>
+    <View style={styles.appBG}>
+      <GameBox/>
+    </View>
+    /*<ScrollView>
       <GameBox />
       <Categories/>
       <View style={styles.page}>
@@ -92,12 +101,28 @@ export default function App() {
         <GameSearch search={search} />
         <StatusBar style="auto" />
       </View>
-    </ScrollView>
+    </ScrollView>*/
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  appBG: {
+    backgroundColor: "#220338",
+    alignItems: "center",
+    color: "white",
+    padding: 50,
+    height:10000
+
+  },
+  logoContainer: {
+    width: 50,
+    height:50
+  },
+  logoMenu: {
+    width: 50,
+    height:50
+  }
+  /*container: {
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
@@ -161,5 +186,5 @@ const styles = StyleSheet.create({
     borderColor: "#ccd",
     paddingHorizontal: 12,
     paddingVertical: 6,
-  },
+  },*/
 });

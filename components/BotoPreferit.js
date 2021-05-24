@@ -34,9 +34,9 @@ export default class BotoPreferit extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'white',
+    position:'absolute',
+    top:1,
+    left:100
   },
   title: {
     fontSize: 32,
@@ -45,9 +45,8 @@ const styles = StyleSheet.create({
   },
   button: {
     padding: 16,
-    width: 115,
-    height: 105,
-    borderColor:'black',
+    width: 55,
+    height: 50,
     alignItems: 'center'
   },
   text: {
@@ -55,7 +54,7 @@ const styles = StyleSheet.create({
     fontSize: 20
   },
   image: {
-    width: 115,
-    height: 100,
+    width: 55,
+    height: 50,
   }
 });
