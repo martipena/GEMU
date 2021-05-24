@@ -6,6 +6,7 @@ const Game = ({ game }) => {
     <View style={styles.user}>
       <Image style={styles.avatar} source={{ uri: game.background_image }} />
       <Text style={styles.name}>{game.name}</Text>
+      {game.genres.map(genre => <Text>{genre.name}</Text>)}
     </View>
   );
 };
@@ -64,6 +65,8 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 18,
     fontWeight: "bold",
+    position: "absolute",
+    bottom: 0 
   },
   separator: {
     height: 1,
