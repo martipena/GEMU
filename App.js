@@ -9,6 +9,8 @@ import GameBox from "./components/GameBox";
 import Categories from "./components/Categories";
 import Logo from "./assets/GemuMenu.png";
 import { useFonts } from "expo-font";
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 /*
 export default function App() {
   return (
@@ -28,6 +30,8 @@ const styles = StyleSheet.create({
   },
 });
 */
+const Stack = createStackNavigator();
+
 const Paragraph = (props) => {
   return <Text style={styles.paragraph}>{props.children}</Text>;
 };
@@ -38,9 +42,12 @@ export default function App() {
   });
   const [search, setSearch] = useState("");
   return (
-    <View style={styles.appBG}>
-      <GameBox/>
-    </View>
+    <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="GameBox" component={GameBox} />
+        </Stack.Navigator>
+    </NavigationContainer>
+
     /*<ScrollView>
       <GameBox />
       <Categories/>
@@ -111,16 +118,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
     color: "white",
     padding: 50,
-    height:10000
+    height: 10000,
+    flex: 1,
 
   },
   logoContainer: {
     width: 50,
-    height:50
+    height: 50
   },
   logoMenu: {
     width: 50,
-    height:50
+    height: 50
   }
   /*container: {
     flex: 1,

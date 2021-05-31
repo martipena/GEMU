@@ -8,8 +8,9 @@ import { useFonts } from "expo-font";
 const Game = ({ game }) => {
   
   return (
-    <View>
+    <View >
       <Image style={styles.bgImage} source={{ uri: game.background_image }} />
+     
       <View style={styles.game}>
         <BotoPreferit style={styles.likeButton}></BotoPreferit>
         <Text style={styles.name}>
@@ -86,11 +87,11 @@ const styles = StyleSheet.create({
     backgroundColor:"#00FF75"
   },
   game: {
-    flex: 1,
+    //flex: 1,
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 30,
-    padding: 10,
+    //padding: 10,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "flex-start",
