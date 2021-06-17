@@ -6,6 +6,7 @@ import PaginaAvatars from "./components/PaginaAvatars";
 import GameList from "./components/GameList";
 import GameSearch from "./components/GameSearch";
 import GameBox from "./components/GameBox";
+import Details from "./components/GameBox";
 import Categories from "./components/Categories";
 import Logo from "./assets/GemuMenu.png";
 import { useFonts } from "expo-font";
@@ -45,6 +46,7 @@ export default function App() {
     <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="GameBox" component={GameBox} />
+          <Stack.Screen name="Details" component={Details} />
         </Stack.Navigator>
     </NavigationContainer>
 

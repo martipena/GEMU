@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, ActivityIndicator, StyleSheet, FlatList, Image } from "react-native";
 import BotoPreferit from "../components/BotoPreferit";
-
 import { useFonts } from "expo-font";
 
 
-const Game = ({ game }) => {
+const Game = ({ game, navigation }) => {
   
   return (
-    <View >
+    <View id={game.id} onTouchEnd={() => navigation.navigate('Details',{gameID: game.id})}>
       <Image style={styles.bgImage} source={{ uri: game.background_image }} />
      
       <View style={styles.game}>
@@ -23,6 +22,15 @@ const Game = ({ game }) => {
       </View>
     </View>
   );
+};
+
+function Details({route}){
+  const {gameID} = route.params;
+  return(
+      <View>
+          <Text>{JSON.stringify(gameID)}</Text>
+      </View>
+  )
 };
 
 export default function GameBox() {
@@ -66,6 +74,11 @@ export default function GameBox() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#220338",
+    alignItems: "center",
+    color: "white",
+    padding: 50,
+    height: 10000,
     
   },
   emptyList: {
